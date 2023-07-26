@@ -23,7 +23,7 @@ exports.register = async (req, res, next) => {
 
       if (row.length >= 1) {
           return res.render('register', {
-              error: 'This email already in use.'
+              error: 'This email already registered'
           });
       }
 
@@ -36,12 +36,12 @@ exports.register = async (req, res, next) => {
 
       if (rows.affectedRows !== 1) {
           return res.render('register', {
-              error: 'Your registration has failed.'
+              error: 'Your registration has failed due to internal server error.'
           });
       }
       
       res.render("register", {
-          msg: 'You have successfully registered.'
+          msg: 'You have successfully registered your account as teacher.'
       });
 
   } catch (e) {
